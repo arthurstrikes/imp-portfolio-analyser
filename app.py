@@ -130,12 +130,14 @@ def fetch_price(ticker_ns, target_date):
         df = yf.download(ticker_ns, start=start, end=end, progress=False, auto_adjust=False)
         if df.empty:
             return None, None, "No data returned"
+        # Flatten MultiIndex columns from yfinance >= 0.2.x
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = df.columns.get_level_values(0)
         # Get close on or before target date
         df = df[df.index.date <= target_date]
         if df.empty:
             return None, None, f"No trading data on or before {target_date}"
-        close_col = "Close"
-        price = float(df[close_col].iloc[-1])
+        price = float(df["Close"].iloc[-1])
         actual_date = df.index[-1].date()
         return round(price, 2), actual_date, None
     except Exception as e:
