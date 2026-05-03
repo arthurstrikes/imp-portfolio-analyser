@@ -1,2 +1,2 @@
 # imp-portfolio-rebalance-analyser
-Analyses impact of portfolio rebalancing
+Analyses price impact of each portfolio rebalancing event
