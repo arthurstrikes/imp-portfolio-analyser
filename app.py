@@ -52,7 +52,6 @@ with st.expander("📋 How to use this tool", expanded=False):
 
     - **Action** must be `NEW` (addition) or `SOLD` (exit)
     - **Symbol** must match NSE ticker exactly — e.g. `M&M`, `IDFCFIRSTB`, `NATIONALUM`
-    - **V-Mart (VMM)** → use `VMART` as the ticker
     - Header row is auto-detected and skipped — no need to remove it before pasting
     - You can run multiple products one at a time — just paste different data each time
 
