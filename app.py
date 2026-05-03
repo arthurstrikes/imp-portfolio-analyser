@@ -267,7 +267,7 @@ if fetch_btn:
     styled = (
         display_df.style
         .apply(colour_row, axis=1)
-        .applymap(colour_return, subset=["Return (%)", "Ann. Return (%)"])
+        .map(colour_return, subset=["Return (%)", "Ann. Return (%)"])
         .format({
             "Action Price (₹)":  "₹{:,.2f}",
             "Comp Price (₹)":    "₹{:,.2f}",
